@@ -17,4 +17,4 @@ systemctl enable catalogue
 systemctl start catalogue
 
 dnf install mongodb-mongosh -y
-mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
+mongosh --host mongodb-dev.nareshdevops1218.online </app/db/master-data.js
