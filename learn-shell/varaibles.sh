@@ -9,4 +9,4 @@ echo y - ${y}
 
 
 # Pass value
-echo z - ${z}
+echo z - ${1}
