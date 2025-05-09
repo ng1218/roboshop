@@ -6,3 +6,7 @@ y=hello
 #print variables
 echo x - $x
 echo y - ${y}
+
+
+# Pass value
+echo z - ${z}
