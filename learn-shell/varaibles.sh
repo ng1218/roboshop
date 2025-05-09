@@ -1,7 +1,7 @@
 #Variable practice one
 
-x =10
-y = hello
+x=10
+y=hello
 
 #print variables
 echo x - $x
