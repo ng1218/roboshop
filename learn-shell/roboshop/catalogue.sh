@@ -1,10 +1,10 @@
 source common.sh
-component_name=catalogue
+component_name=cart
 
 nodejs
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${pwd}/mongo.repo /etc/yum.repos.d/mongo.repo
 dnf install mongodb-mongosh -y
-mongo --host mongodb-dev.nareshdevops1218.online </app/schema/catalogue.js
+mongosh --host mongodb-dev.nareshdevops1218.online </app/db/master-data.js
 
 systemd_setup
