@@ -1,3 +1,6 @@
+source common.sh
+component_name=dispatch
+
 dnf install golang -y
 useradd roboshop
 
@@ -11,6 +14,4 @@ go mod init dispatch
 go get 
 go build
 
-systemctl daemon-reload
-systemctl enable dispatch 
-systemctl start dispatch
+systemd_setup

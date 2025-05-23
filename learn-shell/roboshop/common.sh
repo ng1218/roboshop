@@ -12,14 +12,10 @@ nodejs(){
     unzip /tmp/${component_name}.zip
     cd /app 
     npm install 
-
-
-
-
 }
 
 systemd_setup(){
     systemctl daemon-reload
-    systemctl enable cart 
-    systemctl start cart
+    systemctl enable ${component_name}
+    systemctl start ${component_name}
 }
