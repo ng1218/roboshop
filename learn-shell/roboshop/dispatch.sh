@@ -1,17 +1,7 @@
 source common.sh
 component_name=dispatch
 
-dnf install golang -y
-useradd roboshop
+golang
 
-cp dispatch.service /etc/systemd/system/dispatch.service
-mkdir /app 
-curl -L -o /tmp/dispatch.zip https://roboshop-artifacts.s3.amazonaws.com/dispatch-v3.zip 
-cd /app 
-unzip /tmp/dispatch.zip
-cd /app 
-go mod init dispatch
-go get 
-go build
-
+cp ${pwd}/dispatch.repo /etc/yum.repos.d/dispatch.repo
 systemd_setup

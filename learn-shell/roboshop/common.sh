@@ -1,18 +1,33 @@
 
 pwd=$(pwd)
+
+projectsetup_prereq(){
+    useradd roboshop
+
+    cp ${component_name}.service /etc/systemd/system/${component_name}.service
+    mkdir /app 
+    curl -L -o /tmp/${component_name}.zip https://roboshop-artifacts.s3.amazonaws.com/${component_name}-v3.zip 
+    cd /app 
+    unzip /tmp/${component_name}.zip
+    cd /app  
+}
+
 nodejs(){
     dnf module disable nodejs -y
     dnf module enable nodejs:20 -y
     dnf install nodejs -y
 
-    cp ${component_name}.service /etc/systemd/system/${component_name}.service
-    useradd roboshop
-    mkdir /app 
-    curl -L -o /tmp/${component_name}.zip https://roboshop-artifacts.s3.amazonaws.com/${component_name}-v3.zip
-    cd /app 
-    unzip /tmp/${component_name}.zip
-    cd /app 
+    projectsetup_prereq
+    
     npm install 
+}
+
+golang(){
+    dnf install golang -y
+    projectsetup_prereq
+    go mod init ${component_name}
+    go get 
+    go build 
 }
 
 systemd_setup(){
