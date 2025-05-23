@@ -1,7 +1,7 @@
 source common.sh
 component_name=shipping
 
-projectsetup_prereq
+java
 
 dnf install mysql -y 
 mysql -h mysql-dev.nareshdevops1218.online -uroot -pRoboShop@1 < /app/db/schema.sql
