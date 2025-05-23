@@ -30,6 +30,13 @@ golang(){
     go build 
 }
 
+java(){
+    dnf install maven -y
+    projectsetup_prereq
+    mvn clean package 
+    mv target/${component_name}-1.0.jar ${component_name}.jar  
+}
+
 systemd_setup(){
     systemctl daemon-reload
     systemctl enable ${component_name}
