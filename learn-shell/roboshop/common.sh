@@ -30,6 +30,14 @@ golang(){
     go build 
 }
 
+python(){
+    dnf install python3 gcc python3-devel -y
+
+    projectsetup_prereq
+    
+    pip3 install -r requirements.txt
+}
+
 java(){
     dnf install maven -y
     projectsetup_prereq
