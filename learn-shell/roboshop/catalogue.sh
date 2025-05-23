@@ -4,7 +4,7 @@ component_name=catalogue
 nodejs
 
 #cp mongo.repo /etc/yum.repos.d/mongo.repo
-dnf install mongodb-org-shell -y
-mongo --host mongodb-dev.nareshdevops1218.online </app/db/master-data.js
+dnf install mongodb-mongosh -y
+mongo --host mongodb-dev.nareshdevops1218.online </app/schema/catalogue.js
 
 systemd_setup
