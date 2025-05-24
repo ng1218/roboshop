@@ -1,14 +1,15 @@
-set -e
-source common.sh
-component_name=frontend
+dnf module disable nginx -y
+dnf module enable nginx:1.24 -y
+dnf install nginx -y
 
-dnf install nginx -y 
 systemctl enable nginx 
-systemctl start nginx
+systemctl start nginx 
 cp nginx.conf /etc/nginx/nginx.conf
-echo 'deleting default nginx html'
-rm -rf /usr/share/nginx/html/*
-sudo curl -L -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip 
+
+rm -rf /usr/share/nginx/html/* 
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
 cd /usr/share/nginx/html 
 unzip /tmp/frontend.zip
+
+
 systemctl restart nginx 
