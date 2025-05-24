@@ -1,3 +1,4 @@
+set -e
 source common.sh
 component_name=frontend
 
